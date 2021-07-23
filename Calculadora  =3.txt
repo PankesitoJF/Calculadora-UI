@@ -1,0 +1,364 @@
+package alculadora;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Calculator extends JFrame implements ActionListener { 
+	
+	/*Crear.Formulario*/
+	JPanel base = (JPanel) this.getContentPane();
+	
+	/*CREANDO.PANTALLA*/
+	JTextField pantalla = new JTextField();
+	
+	// BOTONES
+	
+			JButton buno = new JButton("1");
+			JButton bdos = new JButton("2");
+			JButton btres = new JButton("3");
+			JButton bclear = new JButton("C");
+			JButton bcuatro = new JButton("4");
+			JButton bcinco = new JButton("5");
+			JButton bseis = new JButton("6");
+			JButton bsuma = new JButton("+");
+			JButton bsiete = new JButton("7");
+			JButton bocho = new JButton("8");
+			JButton bnueve = new JButton("9");
+			JButton bresta = new JButton("-");
+			JButton bmulti = new JButton("x");
+			JButton bcero = new JButton("0");
+			JButton bdivision = new JButton("/");
+			JButton bpunto = new JButton(".");
+			JButton bigual = new JButton("=");
+	
+	public Calculator() {
+		
+		// PROPIEDADES
+		base.setLayout(null); //Acomodar.de.manera.manual.c/u.de.los.elemntos.
+		setSize(350,450);
+		setTitle("CALCULDORA =3");
+		setVisible(true);
+		
+		// PROPIEDADES.PANTALLA
+		pantalla.setBounds(22, 8, 288, 70);
+		add(pantalla);
+		pantalla.setFont(new Font("Light UI",Font.BOLD,30));
+		
+		// PROPIEDADES.BOTONES
+		
+		/*Boton_No.1*/
+		buno.setBounds(22, 83, 60, 60);
+		buno.setFont(new Font("Light UI",Font.BOLD,20));
+		add(buno);
+		buno.addActionListener(this);
+		/*Boton_No.2*/
+		bdos.setBounds(87,83, 60, 60);
+		bdos.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bdos);
+		bdos.addActionListener(this);
+		/*Boton_No.3*/
+		btres.setBounds(152, 83, 60, 60);
+		btres.setFont(new Font("Light UI",Font.BOLD,20));
+		add(btres);
+		btres.addActionListener(this);
+		/*Boton_Clear*/
+		bclear.setBounds(217, 83, 92, 60);
+		bclear.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bclear);
+		bclear.addActionListener(this);
+		/*Boton_No.4*/
+		bcuatro.setBounds(22, 148, 60, 60);
+		bcuatro.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bcuatro);
+		bcuatro.addActionListener(this);
+		/*Boton_No.5*/
+		bcinco.setBounds(87, 148, 60, 60);
+		bcinco.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bcinco);
+		bcinco.addActionListener(this);
+		/*Boton_No.6*/
+		bseis.setBounds(152, 148, 60, 60);
+		bseis.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bseis);
+		bseis.addActionListener(this);
+		/*Boton_Suma*/
+		bsuma.setBounds(217, 148, 92, 60);
+		bsuma.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bsuma);
+		bsuma.addActionListener(this);
+		/*Boton_No.7*/
+		bsiete.setBounds(22, 213, 60, 60);
+		bsiete.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bsiete);
+		bsiete.addActionListener(this);
+		/*Boton_No.8*/
+		bocho.setBounds(87,213, 60, 60);
+		bocho.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bocho);
+		bocho.addActionListener(this);
+		/*Boton_No.9*/
+		bnueve.setBounds(152, 213, 60, 60);
+		bnueve.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bnueve);
+		bnueve.addActionListener(this);
+		/*Boton_Resta*/
+		bresta.setBounds(217, 213, 92, 60);
+		bresta.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bresta);
+		bresta.addActionListener(this);
+		/*Boton_Multiplicacion*/
+		bmulti.setBounds(22, 278, 60, 60);
+		bmulti.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bmulti);
+		bmulti.addActionListener(this);
+		/*Boton_No.0*/
+		bcero.setBounds(87,278, 60, 60);
+		bcero.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bcero);
+		bcero.addActionListener(this);
+		/*Boton_Division*/
+		bdivision.setBounds(152, 278, 60, 60);
+		bdivision.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bdivision);
+		bdivision.addActionListener(this);
+		/*Boton_Punto*/
+		bpunto.setBounds(217, 278, 92, 60);
+		bpunto.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bpunto);
+		bpunto.addActionListener(this);
+		/*Boton_Igual*/
+		bigual.setBounds(22, 343, 288, 60);
+		bigual.setFont(new Font("Light UI",Font.BOLD,20));
+		add(bigual);
+		bigual.addActionListener(this);
+		
+	}
+	
+	public static void main(String[]args) {
+		new Calculator();
+		
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		/*Boton.No.1*/
+		if (e.getSource() == buno ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("1");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "1");
+			}
+			
+		}
+		/*Boton.No.2*/
+		if (e.getSource() == bdos ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("2");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "2");
+			}
+			
+		}
+		/*Boton.No.2*/
+		if (e.getSource() == bdos ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("2");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "2");
+			}
+			
+		}
+		/*Boton.No.3*/
+		if (e.getSource() == btres ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("3");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "3");
+			}
+			
+		}
+		/*Boton.No.4*/
+		if (e.getSource() == bcuatro ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("4");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "4");
+			}
+			
+		}
+		/*Boton.No.5*/
+		if (e.getSource() == bcinco ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("5");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "5");
+			}
+			
+		}
+		/*Boton.No.6*/
+		if (e.getSource() == bseis ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("6");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "6");
+			}
+			
+		}
+		/*Boton.No.7*/
+		if (e.getSource() == bsiete ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("7");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "7");
+			}
+			
+		}
+		/*Boton.No.8*/
+		if (e.getSource() == bocho ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("8");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "8");
+			}
+			
+		}
+		/*Boton.No.9*/
+		if (e.getSource() == bnueve ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("9");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "9");
+			}
+			
+		}
+		/*Boton.No.0*/
+		if (e.getSource() == bcero ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("0");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "0");
+			}
+			
+		}
+		/*Boton.No.Punto*/
+		if (e.getSource() == bpunto ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText(".");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + ".");
+			}
+			
+		}
+		/*Boton.No.Suma*/
+		if (e.getSource() == bsuma ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("+");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "+");
+			}
+			
+		}
+		/*Boton.Resta*/
+		if (e.getSource() == bresta ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("-");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "-");
+			}
+			
+		}
+		/*Boton.Division*/
+		if (e.getSource() == bdivision ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("/");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "/");
+			}
+			
+		}
+		/*Boton.Multiplicacion*/
+		if (e.getSource() == bmulti ) {
+			if(pantalla.getText() == "") {
+				pantalla.setText("*");	
+			}
+			else {
+				pantalla.setText(pantalla.getText() + "*");
+			}
+			
+		}
+		/*Boton.Borrar*/
+		if (e.getSource() == bclear ) {
+			
+			pantalla.setText("");
+
+		}
+		/*Boton.Resultado*/
+		if (e.getSource() == bigual) {
+			
+			String cadena = pantalla.getText();
+			int largo = cadena.length();
+			
+				for(int i=0; i < largo ; i ++);
+					
+					char caracter = cadena.charAt(1);
+					
+					// S U M A 
+					
+					if (caracter == '+') {
+						
+						String primeraparte = cadena.substring(0,1);
+						String segundaparte = cadena.substring(1+1,cadena.length());
+						
+						double resultado = Double.parseDouble(primeraparte) + Double.parseDouble(segundaparte);
+						
+						pantalla.setText(Double.toString(resultado));
+					} // R E S T A
+					
+					if (caracter == '-') {
+						
+						String primeraparte = cadena.substring(0,1);
+						String segundaparte = cadena.substring(1+1,cadena.length());
+						
+						double resultado = Double.parseDouble(primeraparte) - Double.parseDouble(segundaparte);
+						
+						pantalla.setText(Double.toString(resultado));
+					} // M U L T I P L I C A C I O N
+					
+					if (caracter == '*') {
+						
+						String primeraparte = cadena.substring(0,1);
+						String segundaparte = cadena.substring(1+1,cadena.length());
+						
+						double resultado = Double.parseDouble(primeraparte) * Double.parseDouble(segundaparte);
+						
+						pantalla.setText(Double.toString(resultado));
+					} // D I V I S I O N
+					if (caracter == '/') {
+						
+						String primeraparte = cadena.substring(0,1);
+						String segundaparte = cadena.substring(1+1,cadena.length());
+						
+						double resultado = Double.parseDouble(primeraparte) / Double.parseDouble(segundaparte);
+						
+						pantalla.setText(Double.toString(resultado));
+					}
+			
+		}
+	}
+
+}
